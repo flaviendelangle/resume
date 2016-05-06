@@ -1,7 +1,7 @@
 App.service('project_zzzelp', [
     function() {
 
-        this.name = 'zzzelp';
+        this.name = 'Zzzelp';
 
         this.presentation_fr =  '<p>Zzzelp est une plateforme permettant d\'enrichir l\'expérience utilisateur sur le jeu en ligne Fourmizzz.<br>';
         this.presentation_fr += 'Il met à disposition des joueurs une série d\'outils visant à la fois à augmenter leur productivité et à rendre le jeu plus agréable au quotidien. ';

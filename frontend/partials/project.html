@@ -3,7 +3,5 @@
     <section>
     	<div ng-bind-html="html.presentation" style="padding: 20px;line-height: 1.5em;"></div>
     </section>
-    <section ng-repeat="code in codes">
-    	<div hljs hljs-no-escape hljs-source="code.content"></div>
-    </section>
+    <code-block ng-repeat="code in codes" code="code"></code-block>
 </div>

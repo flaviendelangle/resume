@@ -1,0 +1,67 @@
+<div class="presentation_script" data-affiche="0"><div class="titre_projet">Collecting Fields</div><div class="caracterisiques_script"><div>JavaScript</div><div>Zzzelp</div><div>2013</div></div><div class="description_script">Import datas (mainly the size of the field) of every player asked by the user. This algorithm is for example useful to get the essential values to compute <i>Optimized attacks</i>.</div><span class="bouton">Show the code</span><div class="cadre_code"><pre style="background:#181818;color:#f8f8f8"><span class="switch_couleur" data-couleur="sombre"></span><span style="color:#f9ee98">function</span> <span style="color:#9b703f">RecuperationDonneesJoueurs</span>(fonction_fin, elements, donnees) {
+    <span style="color:#cda869">if</span>(<span style="color:#cda869">typeof</span> donnees <span style="color:#cda869">==</span> <span style="color:#8f9d6a">'undefined'</span>) {
+        <span style="color:#f9ee98">var</span> donnees <span style="color:#cda869">=</span> {
+            alliances : <span style="color:#cda869">new</span> <span style="color:#9b703f">Array</span>(),
+            joueurs : <span style="color:#cda869">new</span> <span style="color:#9b703f">Array</span>()
+        };
+    }
+    <span style="color:#cda869">if</span>(elements.alliances.<span style="color:#cf6a4c">length</span> <span style="color:#cda869">&gt;</span> <span style="color:#cf6a4c">0</span>) {
+        <span style="color:#f9ee98">var</span> mode <span style="color:#cda869">=</span> <span style="color:#8f9d6a">'alliance'</span>,
+            alliance <span style="color:#cda869">=</span> elements.alliances.<span style="color:#dad085">pop</span>();
+    }
+    <span style="color:#cda869">else</span> <span style="color:#cda869">if</span>(elements.joueurs.<span style="color:#cf6a4c">length</span> <span style="color:#cda869">&gt;</span> <span style="color:#cf6a4c">0</span>) {
+        <span style="color:#f9ee98">var</span> mode <span style="color:#cda869">=</span> <span style="color:#8f9d6a">'joueur'</span>,
+            pseudo <span style="color:#cda869">=</span> elements.joueurs.<span style="color:#dad085">pop</span>();
+    }
+    <span style="color:#cda869">else</span> {
+        <span style="color:#f9ee98">var</span> mode <span style="color:#cda869">=</span> <span style="color:#8f9d6a">''</span>;
+        fonction_fin(donnees);
+    }
+    <span style="color:#cda869">if</span>(mode <span style="color:#cda869">!</span><span style="color:#cda869">=</span> <span style="color:#8f9d6a">''</span>) {
+        <span style="color:#f9ee98">var</span> xdr <span style="color:#cda869">=</span> getXDomainRequest();
+        <span style="color:#9b859d">xdr</span>.<span style="color:#9b703f">onload</span> <span style="color:#cda869">=</span> <span style="color:#f9ee98">function</span>() {
+            <span style="color:#f9ee98">var</span> page <span style="color:#cda869">=</span> getBody(xdr.<span style="color:#cf6a4c">responseText</span>),
+                zone_page <span style="color:#cda869">=</span> <span style="color:#9b859d">document</span>.<span style="color:#dad085">createElement</span>(<span style="color:#8f9d6a">'div'</span>);
+            zone_page.<span style="color:#dad085">setAttribute</span>(<span style="color:#8f9d6a">'style'</span>,<span style="color:#8f9d6a">'display:none'</span>);
+            zone_page.innerHTML <span style="color:#cda869">=</span> page;
+            <span style="color:#9b859d">document</span>.<span style="color:#cf6a4c">body</span>.<span style="color:#dad085">appendChild</span>(zone_page);
+            <span style="color:#cda869">if</span>(mode <span style="color:#cda869">==</span> <span style="color:#8f9d6a">'alliance'</span>) {
+                <span style="color:#f9ee98">var</span> tableau <span style="color:#cda869">=</span> zone_page.querySelector(<span style="color:#8f9d6a">'#tabMembresAlliance'</span>),
+                    lignes <span style="color:#cda869">=</span> tableau.<span style="color:#cf6a4c">rows</span>,
+                    valeurs <span style="color:#cda869">=</span> <span style="color:#cda869">new</span> <span style="color:#9b703f">Array</span>();  
+                <span style="color:#cda869">for</span> (<span style="color:#f9ee98">var</span> i<span style="color:#cda869">=</span><span style="color:#cf6a4c">1</span>; i<span style="color:#cda869">&lt;</span>lignes.<span style="color:#cf6a4c">length</span>; i<span style="color:#cda869">++</span>) {
+                    <span style="color:#f9ee98">var</span> cases <span style="color:#cda869">=</span> lignes[i].<span style="color:#cf6a4c">cells</span>;
+                    valeurs.<span style="color:#dad085">push</span>({ 
+                        pseudo : cases[<span style="color:#cf6a4c">2</span>].querySelector(<span style="color:#8f9d6a">'a'</span>).innerHTML, 
+                        TDC : <span style="color:#dad085">parseInt</span>(cases[<span style="color:#cf6a4c">4</span>].innerHTML.<span style="color:#dad085">replace</span>(<span style="color:#e9c062">/ /g</span>,<span style="color:#8f9d6a">""</span>)), 
+                        rang : cases[<span style="color:#cf6a4c">1</span>].innerHTML 
+                    });
+                }
+                donnees.alliances.<span style="color:#dad085">push</span>({
+                    alliance : alliance, 
+                    valeurs : valeurs, 
+                    timestamp : <span style="color:#9b859d">Math</span>.<span style="color:#dad085">round</span>(<span style="color:#cda869">+</span><span style="color:#cda869">new</span> <span style="color:#9b703f">Date</span>()/<span style="color:#cf6a4c">1000</span>)
+                });
+            }
+            <span style="color:#cda869">else</span> {
+                donnees.joueurs.<span style="color:#dad085">push</span>({ 
+                    pseudo : pseudo, 
+                    TDC : <span style="color:#dad085">parseInt</span>(zone_page.querySelector(<span style="color:#8f9d6a">'.tableau_score'</span>).<span style="color:#cf6a4c">rows</span>[<span style="color:#cf6a4c">1</span>].<span style="color:#cf6a4c">cells</span>[<span style="color:#cf6a4c">1</span>].innerHTML.<span style="color:#dad085">replace</span>(<span style="color:#e9c062">/ /g</span>, <span style="color:#8f9d6a">''</span>)), 
+                    alliance : zone_page.querySelector(<span style="color:#8f9d6a">'.boite_membre table a'</span>).innerHTML, 
+                    timestamp : <span style="color:#9b859d">Math</span>.<span style="color:#dad085">round</span>(<span style="color:#cda869">+</span><span style="color:#cda869">new</span> <span style="color:#9b703f">Date</span>()/<span style="color:#cf6a4c">1000</span>)
+                });
+            }
+            zone_page.<span style="color:#cf6a4c">parentNode</span>.<span style="color:#dad085">removeChild</span>(zone_page)
+            RecuperationDonneesJoueurs(fonction_fin, elements, donnees);
+        }
+        <span style="color:#cda869">if</span>(mode <span style="color:#cda869">==</span> <span style="color:#8f9d6a">'alliance'</span>) {
+            <span style="color:#f9ee98">var</span> addresse <span style="color:#cda869">=</span> <span style="color:#8f9d6a">'http://'</span> <span style="color:#cda869">+</span> ze_serveur <span style="color:#cda869">+</span> <span style="color:#8f9d6a">'.fourmizzz.fr/classementAlliance.php?alliance='</span> <span style="color:#cda869">+</span> alliance;
+        }
+        <span style="color:#cda869">else</span> {
+            <span style="color:#f9ee98">var</span> addresse <span style="color:#cda869">=</span> <span style="color:#8f9d6a">'http://'</span> <span style="color:#cda869">+</span> ze_serveur <span style="color:#cda869">+</span> <span style="color:#8f9d6a">'.fourmizzz.fr/Membre.php?Pseudo='</span> <span style="color:#cda869">+</span> pseudo;
+        }
+        xdr.<span style="color:#dad085">open</span>(<span style="color:#8f9d6a">"GET"</span>, addresse);
+        xdr.<span style="color:#dad085">send</span>(<span style="color:#cf6a4c">null</span>);
+    }
+}
+</pre></div></div>

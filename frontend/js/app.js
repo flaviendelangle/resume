@@ -1,4 +1,4 @@
-var App = angular.module('App', ['ui.router','ngSanitize','hljs']);
+var App = angular.module('App', ['ui.router','ngSanitize']);
 
 App.config([
     '$stateProvider',
@@ -22,21 +22,20 @@ App.config([
     }
 ]);
 
-App.config([
-    'hljsServiceProvider',
-    function(hljsServiceProvider) {
-        hljsServiceProvider.setOptions({
-            tabReplace : '    '
-        });
-    }
-]);
-
 App.run([
     '$state',
-    function($state) {
+    '$rootScope',
+    'CONFIG',
+    function($state,$rootScope,CONFIG) {
         if($state.current.url == '^') {
             $state.go('home');
         }
+
+        localStorage.setItem('language', CONFIG.language.default);
+
+        $rootScope.$on('change_language', function(event, language) {
+           localStorage.setItem('language', language); 
+        });
     }
 ]);
 

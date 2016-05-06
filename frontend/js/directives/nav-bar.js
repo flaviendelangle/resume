@@ -11,7 +11,7 @@ App.directive("navBar", [
                 scope.affiche = false;
 
                 scope.init = function() {
-                    scope.set_language(CONFIG.language.default);
+                    scope.set_language(localStorage.getItem('language'));
                     $timeout(function() {
                         scope.affiche = true;
                     }, CONFIG.animation.start);
@@ -51,6 +51,10 @@ App.directive("navBar", [
 
                 scope.show_resume = function() {
                     $state.go('resume');
+                };
+
+                scope.go_project = function(project) {
+                    $state.go('project', { project : project });
                 };
 
                 scope.init();

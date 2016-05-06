@@ -5,9 +5,9 @@ App.service('projects', [
 
         this.get_project = function(project_str) {
             switch(project_str) {
-                case 'zzzelp' :
+                case 'Zzzelp' :
                     return project_zzzelp;
-                case 'pagerank' :
+                case 'Pagerank' :
                     return project_pagerank;
                 default :
                     console.error('This project doesn\'t exist');

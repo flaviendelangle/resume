@@ -1,0 +1,14 @@
+<section>
+	<h2>{{html.title}}</h2>
+	<div class="caracterisiques_script">
+		<div>{{code.language}}</div>
+		<div ng-click="go_project(code.project);">{{code.project}}</div>
+		<div>{{code.year}}</div>
+	</div>
+	<div class="description_script">
+		<p>{{html.description}}</p>
+	</div>
+	<pre style="max-height: 500px;overflow: auto;margin-bottom: 0;margin-top: 0;">
+		<code class="code.language" style="overflow:hidden;width:1000px;">{{code.content}}</code>
+	</pre>
+</section>

@@ -2,10 +2,11 @@ App.controller('ProjectCtrl', [
     '$scope',
     '$timeout',
     '$stateParams',
+    '$window',
     'CONFIG',
     'projects',
     'codes',
-    function($scope,$timeout,$stateParams,CONFIG,projects,codes) {
+    function($scope,$timeout,$stateParams,$window,CONFIG,projects,codes) {
 
         $scope.affiche = false;
         $scope.project = projects.get_project($stateParams.project);
@@ -26,7 +27,6 @@ App.controller('ProjectCtrl', [
         $scope.load_codes = function() {
             codes.get('project', $scope.project.name, function(code) {
                 $scope.codes.push(code);
-                console.log($scope.codes);
             });
         };
 
