@@ -1,0 +1,44 @@
+<div ng-class="{ 'nav_affiche' : affiche, 'nav_cache' : !affiche }">
+    <div class="personnal_informations cadre">
+        <h2 class="project_title">{{html.title}}</h2>
+        <div>
+            <img src="/images/icons/identity.png">
+            <span>
+                Flavien DELANGLE - 20 {{html.age}}
+            </span>
+        </div>
+        <div>
+            <img src="/images/icons/adress.png">
+            <span>
+                Lille {{html.country}}
+            </span>
+        </div>
+        <div>
+            <img src="/images/icons/email.png">
+            <span>
+                flaviendelangle@gmail.com
+            </span>
+        </div>
+    </div>
+    <div class="menu cadre">
+        <div class="lien_resume" onclick="show_resume()">
+            {{html.resume}}
+        </div>
+        <div class="choix_langue">
+            <img src="/images/icons/french_flag.png" title="Version française" ng-click="change_language('french');">
+            <img src="/images/icons/english_flag.png" title="English version" ng-click="change_language('english');">
+        </div>
+        <div class="menu_header">{{html.projects}}</div>
+        <div class="menu_langage">
+            <div onclick="update_codes('projet', 'Zzzelp')">Zzzelp (2013-2015)</div>
+            <div onclick="update_codes('projet', 'ISN')">Projet ISN (2013)</div>
+            <div onclick="update_codes('projet', 'TIPE')">TIPE : PageRank (2015)</div>
+        </div>
+        <div class="menu_header">{{html.languages}}</div>
+        <div class="menu_langage">
+            <div onclick="update_codes('langage', 'JavaScript')">JavaScript</div> 
+            <div onclick="update_codes('langage', 'PHP')">PHP</div>
+            <div onclick="update_codes('langage', 'Python')">Python</div>
+        </div>
+    </div>
+</div>

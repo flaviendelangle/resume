@@ -1,0 +1,45 @@
+@mixin shadow() {
+    box-shadow : 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+
+body {
+	margin 		: 0;
+    font-family : Open Sans;
+    font-size 	: 0.9em;
+    background 	: #2E2E2E;
+}
+
+article {
+    position	: absolute;
+    left 		: 320px;
+    top 		: 60px;
+    width 		: calc(100% - 340px);
+}
+
+
+.cadre {
+    @include shadow();
+    margin				: 25px auto;
+    position			: relative;
+    border-radius		: 2px;
+    overflow			: hidden;
+    background-color	: #fafafa;
+}
+
+h2 {
+    line-height	: 2.5em;
+    text-align	: center;
+    font-weight	: 600;
+    font-size	: 1.2em;
+	display 	: block;
+    margin 		: 0;
+    background : #F44336;
+}
+
+.article_title {
+	@include shadow();
+    background 	: #A90F03 !important;
+    width 		: 750px;
+    margin 		: auto;
+}

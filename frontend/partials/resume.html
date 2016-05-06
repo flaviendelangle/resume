@@ -1,0 +1,17 @@
+<div ng-class="{ 'section_affiche' : affiche, 'section_cache' : !affiche }">
+    <h2 class="article_title">Resume</h2>
+    <section ng-repeat="section in html.sections">
+        <h2>{{section.title}}</h2>
+        <div ng-repeat="line in section.content" style="line-height:1.5em;padding:15px;padding-bottom: 2em;">
+            <div style="display: inline-block;width: 150px;vertical-align: top;">
+                <div>{{line.year}}</div>
+                <div style="font-style:italic;">{{line.place}}</div>
+            </div>
+            <div style="display: inline-block;width: calc(100% - 154px);" class="contenu_scolaire">
+                <div class="titre_scolaire">{{line.title}}</div>
+                <div class="details_scolaire">{{line.details}}</div>
+            </div>
+        </div>
+      </div>
+   </section>
+</div>

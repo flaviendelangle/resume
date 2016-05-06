@@ -1,0 +1,15 @@
+@mixin animation-width($duration) {
+    -webkit-transition : max-width $duration ease-out;
+       -moz-transition : max-width $duration ease-out;
+        -ms-transition : max-width $duration ease-out;
+         -o-transition : max-width $duration ease-out;
+            transition : max-width $duration ease-out;    
+}
+
+@mixin animation-height($duration) {
+    -webkit-transition : max-height $duration ease-out;
+       -moz-transition : max-height $duration ease-out;
+        -ms-transition : max-height $duration ease-out;
+         -o-transition : max-height $duration ease-out;
+            transition : max-height $duration ease-out;    
+}

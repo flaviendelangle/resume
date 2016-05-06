@@ -1,0 +1,179 @@
+@charset "UTF-8";
+header-bar {
+  display: block;
+  background-color: grey;
+  color: white;
+  text-shadow: 1px 1px #2E2E2E;
+  font-size: 1.2em;
+  height: 2em;
+  line-height: 2em;
+  text-align: right;
+  padding-right: 20px;
+  box-shadow: 0 12px 20px 0 rgba(0, 0, 0, 0.3), 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  z-index: 10; }
+
+.header_cache > span {
+  max-width: 0; }
+
+.header_affiche > span {
+  max-width: 100%; }
+
+.nom_header {
+  -webkit-transition: max-width 3s ease-out;
+  -moz-transition: max-width 3s ease-out;
+  -ms-transition: max-width 3s ease-out;
+  -o-transition: max-width 3s ease-out;
+  transition: max-width 3s ease-out;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block; }
+
+body {
+  margin: 0;
+  font-family: Open Sans;
+  font-size: 0.9em;
+  background: #2E2E2E; }
+
+article {
+  position: absolute;
+  left: 320px;
+  top: 60px;
+  width: calc(100% - 340px); }
+
+.cadre {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  margin: 25px auto;
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  background-color: #fafafa; }
+
+h2 {
+  line-height: 2.5em;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2em;
+  display: block;
+  margin: 0;
+  background: #F44336; }
+
+.article_title {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  background: #A90F03 !important;
+  width: 750px;
+  margin: auto; }
+
+nav-bar > div {
+  -webkit-transition: max-height 1.5s ease-out;
+  -moz-transition: max-height 1.5s ease-out;
+  -ms-transition: max-height 1.5s ease-out;
+  -o-transition: max-height 1.5s ease-out;
+  transition: max-height 1.5s ease-out;
+  overflow: hidden;
+  padding: 0 10px;
+  line-height: 2em;
+  position: fixed;
+  top: 60px; }
+
+.nav_cache {
+  max-height: 0; }
+
+.nav_affiche {
+  max-height: 100%; }
+
+.personnal_informations {
+  margin: 0 0 30px 0;
+  width: 275px; }
+
+.personnal_informations img {
+  height: 2em;
+  margin: 0.5em; }
+
+.personnal_informations > h2 {
+  font-size: 1em;
+  text-align: left;
+  padding-left: 10px;
+  font-weight: bold; }
+
+.personnal_informations > div > span {
+  float: right;
+  line-height: 3em;
+  margin-right: 15px; }
+
+.lien_resume {
+  text-align: center;
+  font-weight: bold;
+  background-color: rgba(0, 70, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 6px; }
+
+.lien_resume:before {
+  content: "→ "; }
+
+.lien_resume:after {
+  content: " ←"; }
+
+.lien_resume:hover {
+  background-color: rgba(0, 70, 255, 0.5); }
+
+.choix_langue {
+  padding: 0 37% !important; }
+
+.choix_langue img {
+  width: 30px;
+  cursor: pointer; }
+
+.choix_langue img:last-child {
+  float: right; }
+
+.menu_header {
+  font-weight: bold;
+  line-height: 2.5em;
+  background: #F44336;
+  margin: 5px 0; }
+
+article > div {
+  -webkit-transition: max-height 1.5s ease-out;
+  -moz-transition: max-height 1.5s ease-out;
+  -ms-transition: max-height 1.5s ease-out;
+  -o-transition: max-height 1.5s ease-out;
+  transition: max-height 1.5s ease-out;
+  overflow: hidden; }
+
+.section_cache {
+  max-height: 0; }
+
+.section_affiche {
+  max-height: 100%; }
+
+section {
+  margin: 25px auto;
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  background-color: #fafafa;
+  width: 750px;
+  margin: auto;
+  margin-top: 20px; }
+
+.parcours_scolaire > div:not(.titre_projet), .connaissances_informatique > div:not(.titre_projet), .loisirs > div:not(.titre_projet) {
+  padding: 0 20px; }
+
+.parcours_scolaire > div:first-child, .connaissances_informatique > div:first-child, .loisirs > div:first-child {
+  margin-bottom: 20px; }
+
+.parcours_scolaire > div:not(.titre_projet):last-child, .connaissances_informatique > div:not(.titre_projet):last-child, .loisirs > div:not(.titre_projet):last-child {
+  margin-bottom: 20px; }
+
+.loisirs > div:not(.titre_projet) {
+  height: 5em; }
+
+.annee_scolaire, .langage_informatique, .titre_loisirs {
+  display: inline-block;
+  width: 150px;
+  vertical-align: top; }
+
+.details_scolaire, .contenu_informatique, .details_loisirs {
+  font-size: 0.9em;
+  color: #696969; }
