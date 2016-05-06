@@ -1,4 +1,6 @@
 header-bar {
+    position: fixed;
+    width: calc(100% - 20px);
     display : block;
     background-color : grey;
     color : white;

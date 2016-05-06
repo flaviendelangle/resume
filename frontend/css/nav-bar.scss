@@ -78,3 +78,21 @@ nav-bar > div {
     background: #F44336;
     margin: 5px 0;
 }
+
+.menu div {
+    padding : 0 10px;
+}
+
+.menu_langage > div:hover{
+   background-color: rgba(0,0,0,0.1); 
+}
+  
+.menu > div:not(.entete_menu):not(.choix_langue){
+   padding : 0px 0px 0px 0px; 
+}
+  
+.menu_langage > div::before {
+    content: "→ ";
+    padding : 0px 0px 0px 10px;
+}
+  

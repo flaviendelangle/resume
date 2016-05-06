@@ -21,14 +21,14 @@
         </div>
     </div>
     <div class="menu cadre">
-        <div class="lien_resume" onclick="show_resume()">
+        <div class="lien_resume clickable" ng-click="show_resume()">
             {{html.resume}}
         </div>
         <div class="choix_langue">
             <img src="/images/icons/french_flag.png" title="Version française" ng-click="change_language('french');">
             <img src="/images/icons/english_flag.png" title="English version" ng-click="change_language('english');">
         </div>
-        <div class="menu_header">{{html.projects}}</div>
+        <div class="menu_header">{{html.projects_title}}</div>
         <div class="menu_langage">
             <div onclick="update_codes('projet', 'Zzzelp')">Zzzelp (2013-2015)</div>
             <div onclick="update_codes('projet', 'ISN')">Projet ISN (2013)</div>

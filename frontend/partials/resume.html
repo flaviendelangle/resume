@@ -1,5 +1,23 @@
 <div ng-class="{ 'section_affiche' : affiche, 'section_cache' : !affiche }">
     <h2 class="article_title">Resume</h2>
+    <section>
+        <h2>Compétences</h2>
+        <div ng-repeat="section in html.skills" style="display:inline-block;width:calc(50% - 40px);line-height:3em;padding:0 20px 20px 20px;">
+            <h3 style="text-align:center;">{{section.title}}</h3>
+            <div ng-repeat="line in section.content" style="position:relative">
+                <div style="display:inline-block">{{line.title}} :</span>
+                <div style="display:inline-block;position:absolute;top:0;right:20px;">
+                    <i 
+                        ng-repeat="i in [1,2,3,4,5]" 
+                        class="fa fa-2x"
+                        style="vertical-align: middle;margin:0 5px;color:#F44336;"
+                        ng-class="{ 'fa-star' : (line.value >= i), 'fa-star-half-o' : (line.value < i && line.value >= i-0.5), 'fa-star-o' : (line.value < i-0.5) }"
+                        aria-hidden="true">
+                    </i>
+                </div>
+            </div>
+        </div>
+    </section>
     <section ng-repeat="section in html.sections">
         <h2>{{section.title}}</h2>
         <div ng-repeat="line in section.content" style="line-height:1.5em;padding:15px;padding-bottom: 2em;">
@@ -9,9 +27,8 @@
             </div>
             <div style="display: inline-block;width: calc(100% - 154px);" class="contenu_scolaire">
                 <div class="titre_scolaire">{{line.title}}</div>
-                <div class="details_scolaire">{{line.details}}</div>
+                <div class="details_scolaire" ng-bind-html="line.details"></div>
             </div>
         </div>
-      </div>
-   </section>
+    </section>
 </div>

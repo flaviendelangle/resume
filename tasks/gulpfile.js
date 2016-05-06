@@ -38,5 +38,11 @@ gulp.task("build-js", function() {
             .pipe(concat("bundle.js"))
             .pipe(ngAnnotate())
             .pipe(sourcemaps.write())
+            .on('error', onError)
             .pipe(gulp.dest(output.javascript));
 }) ;
+
+function onError(error) {
+    console.error(error);
+    this.emit(end);
+}

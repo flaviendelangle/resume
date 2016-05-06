@@ -1,6 +1,7 @@
 article > div {
-	@include animation-height(1.5s);
-	overflow : hidden;
+    @include animation-height(1.5s);
+    overflow : hidden;
+    padding-bottom: 50px;
 }
 
 .section_cache {
@@ -17,8 +18,8 @@ section {
     border-radius: 2px;
     overflow: hidden;
     background-color: #fafafa;
-    width 	: 750px;
-    margin 	: auto;
+    width   : 750px;
+    margin  : auto;
     margin-top: 20px;
 }
 

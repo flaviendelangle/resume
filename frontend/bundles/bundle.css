@@ -1,5 +1,7 @@
 @charset "UTF-8";
 header-bar {
+  position: fixed;
+  width: calc(100% - 20px);
   display: block;
   background-color: grey;
   color: white;
@@ -63,6 +65,12 @@ h2 {
   background: #A90F03 !important;
   width: 750px;
   margin: auto; }
+
+.clickable {
+  cursor: pointer; }
+
+p {
+  text-indent: 15px; }
 
 nav-bar > div {
   -webkit-transition: max-height 1.5s ease-out;
@@ -133,13 +141,27 @@ nav-bar > div {
   background: #F44336;
   margin: 5px 0; }
 
+.menu div {
+  padding: 0 10px; }
+
+.menu_langage > div:hover {
+  background-color: rgba(0, 0, 0, 0.1); }
+
+.menu > div:not(.entete_menu):not(.choix_langue) {
+  padding: 0px 0px 0px 0px; }
+
+.menu_langage > div::before {
+  content: "→ ";
+  padding: 0px 0px 0px 10px; }
+
 article > div {
   -webkit-transition: max-height 1.5s ease-out;
   -moz-transition: max-height 1.5s ease-out;
   -ms-transition: max-height 1.5s ease-out;
   -o-transition: max-height 1.5s ease-out;
   transition: max-height 1.5s ease-out;
-  overflow: hidden; }
+  overflow: hidden;
+  padding-bottom: 50px; }
 
 .section_cache {
   max-height: 0; }

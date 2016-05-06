@@ -46,12 +46,12 @@ App.controller('ResumeCtrl', [
                                         title   : 'Stage en tant que développeur Web à MyMiniFactory',
                                         year    : '2016 - 4 mois',
                                         place   : 'Londres, Angleterre',
-                                        details : 'Création d\'une API REST pour une plateforme de création d\'objets 3D. Amélioration de la plateforme existante avec AngularJS et Node.JS.'
+                                        details : 'Création d\'une API REST pour une plateforme de création d\'objets 3D.<br>Amélioration de la plateforme existante avec AngularJS et Node.JS.'
                                     },{
                                         title   : 'Création et gestionnaire de Zzzelp (http://zzzelp.fr)',
                                         year    : '2013 - 2016',
                                         place   : '',
-                                        details : 'Plateforme en ligne visant à améliorer l\'expérience utilisateur du jeu en ligne Fourmizzz. Le site compte actuellement plus de 5 000 utilisateurs réguliers.'
+                                        details : 'Plateforme en ligne visant à améliorer l\'expérience utilisateur du jeu en ligne Fourmizzz.<br>Le site compte actuellement plus de 5 000 utilisateurs réguliers.'
                                     },{
                                         title   : 'Etude de l\'algorithme du PageRank',
                                         year    : '2015',
@@ -64,12 +64,50 @@ App.controller('ResumeCtrl', [
                     };
                     break;
                 case 'english' :
-                    scope.html = {
+                    $scope.html = {
                     };
                     break;
                 default :
                     console.error('This language is not yet implemented');
             }
+            $scope.html.skills = [
+                {
+                    title   : 'Front-end',
+                    content : [
+                        {
+                            title : 'JavaScript',
+                            value : 4
+                        },{
+                            title : 'AngularJS',
+                            value : 3
+                        },{
+                            title : 'Jquery',
+                            value : 3.5
+                        },{
+                            title : 'CSS',
+                            value : 3.5
+                        }
+                    ]
+                },{
+                    title   : 'Back-end',
+                    content : [
+                        {
+                            title : 'PHP',
+                            value : 4
+                        },{
+                            title : 'Django',
+                            value : 3
+                        },{
+                            title : 'Node.JS',
+                            value : 3
+                        },{
+                            title : 'MySQL',
+                            value : 3.5
+                        }
+
+                    ]
+                }
+            ];
         };
 
 

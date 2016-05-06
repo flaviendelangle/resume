@@ -1,4 +1,4 @@
-var App = angular.module('App', ['ui.router']);
+var App = angular.module('App', ['ui.router','ngSanitize','hljs']);
 
 App.config([
     '$stateProvider',
@@ -13,6 +13,20 @@ App.config([
             url: '/resume',
             templateUrl: 'partials/resume.html',
             controller: 'ResumeCtrl'
+        })
+        .state('project',{
+            url: '/projects/{project}',
+            templateUrl: 'partials/project.html',
+            controller: 'ProjectCtrl'
+        });
+    }
+]);
+
+App.config([
+    'hljsServiceProvider',
+    function(hljsServiceProvider) {
+        hljsServiceProvider.setOptions({
+            tabReplace : '    '
         });
     }
 ]);
