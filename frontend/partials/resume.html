@@ -1,7 +1,7 @@
-<div ng-class="{ 'section_affiche' : affiche, 'section_cache' : !affiche }">
-    <h2 class="article_title">Resume</h2>
+<div ng-class="section_affiche">
+    <h2 class="article_title">{{html.title}}</h2>
     <section>
-        <h2>Compétences</h2>
+        <h2>{{html.skills_title}}</h2>
         <div ng-repeat="section in html.skills" style="display:inline-block;width:calc(50% - 40px);line-height:3em;padding:0 20px 20px 20px;">
             <h3 style="text-align:center;">{{section.title}}</h3>
             <div ng-repeat="line in section.content" style="position:relative">

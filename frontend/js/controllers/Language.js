@@ -1,4 +1,4 @@
-App.controller('ProjectCtrl', [
+App.controller('LanguageCtrl', [
     '$scope',
     '$rootScope',
     '$timeout',
@@ -8,13 +8,13 @@ App.controller('ProjectCtrl', [
     'projects',
     'codes',
     function($scope,$rootScope,$timeout,$stateParams,$window,CONFIG,projects,codes) {
-        console.log($stateParams.project);
+
         $scope.affiche = false;
-        $scope.project = projects.get_project($stateParams.project);
         $scope.codes = [];
+        $scope.language = $stateParams.language;
 
         $scope.init = function() {
-            $scope.set_language(localStorage.getItem('language'));
+            $scope.set_language(CONFIG.language.default);
             $scope.load_codes();
             $timeout(function() {
                 $scope.affiche = true;
@@ -22,11 +22,13 @@ App.controller('ProjectCtrl', [
         };
 
         $scope.set_language = function(language) {
-            $scope.html = $scope.project.get_html(language);
+            $scope.html = {
+                language : $scope.language
+            };
         };
 
         $scope.load_codes = function() {
-            codes.get('project', $scope.project.name, function(code) {
+            codes.get('language', $scope.language, function(code) {
                 $scope.codes.push(code);
             });
         };

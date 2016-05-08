@@ -19,6 +19,10 @@
                 flaviendelangle@gmail.com
             </span>
         </div>
+        <div class="choix_langue">
+            <i class="fa fa-github fa-2x clickable" aria-hidden="true" ng-click="open_github();" style="display: inline-block;width: calc(50% - 2px);text-align: center;"></i>
+            <i class="fa fa-linkedin-square fa-2x clickable" aria-hidden="true" ng-click="open_linkedin();" style="display: inline-block;width: calc(50% - 2px);text-align: center;"></i>
+        </div>
     </div>
     <div class="menu cadre">
         <div class="lien_resume clickable" ng-click="show_resume()">
@@ -30,15 +34,7 @@
         </div>
         <div class="menu_header">{{html.projects_title}}</div>
         <div class="menu_langage">
-            <div ng-click="go_project('Zzzelp');" class="clickable">Zzzelp (2013-2015)</div>
-            <div ng-click="go_project('ISN');" class="clickable">Projet ISN (2013)</div>
-            <div ng-click="go_project('PageRank');" class="clickable">TIPE : PageRank (2015)</div>
-        </div>
-        <div class="menu_header">{{html.languages}}</div>
-        <div class="menu_langage">
-            <div onclick="update_codes('langage', 'JavaScript')">JavaScript</div> 
-            <div onclick="update_codes('langage', 'PHP')">PHP</div>
-            <div onclick="update_codes('langage', 'Python')">Python</div>
+            <div ng-repeat="project in html.projects" ng-click="go_project(project.state);" class="clickable">{{project.name}}</div>
         </div>
     </div>
 </div>

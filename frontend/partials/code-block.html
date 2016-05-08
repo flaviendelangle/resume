@@ -1,7 +1,7 @@
 <section>
 	<h2>{{html.title}}</h2>
 	<div class="caracterisiques_script">
-		<div>{{code.language}}</div>
+		<div ng-click="go_language(code.language);">{{code.language}}</div>
 		<div ng-click="go_project(code.project);">{{code.project}}</div>
 		<div>{{code.year}}</div>
 	</div>

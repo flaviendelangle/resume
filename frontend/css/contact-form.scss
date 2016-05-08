@@ -1,0 +1,144 @@
+.icone_contact {
+    position        : fixed;
+    bottom          : 2%;
+    right           : 2%;
+    cursor          : pointer;
+    z-index         : 150;
+    height          : 50px;
+    border          : 1px solid rgba(0,0,0,0.2);
+    border-radius   : 300px;
+    box-shadow      : 0 6px 10px 0 rgba(0, 0, 0, 0.25), 0 2px 2px 0 rgba(0, 0, 0, 0.15);
+}
+
+.title_contact {
+    position    : fixed;
+    bottom      : calc(2% + 11px);
+    right       : calc(2% + 55px);
+    display     : inline-block;
+    background  : #F44336;
+    line-height : 28px;
+    box-shadow  : 0 12px 20px 0 rgba(0, 0, 0, 0.6), 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+    z-index     : 150;
+    padding     : 0 15px;
+}
+
+.title_contact {
+    -webkit-transition: all .3s ease-out;
+    -moz-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    -ms-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+
+.cache_contact {
+    -webkit-transition: opacity 1s ease-out;
+    -moz-transition: opacity 1s ease-out;
+    -o-transition: opacity 1s ease-out;
+    -ms-transition: opacity 1s ease-out;
+    transition: opacity 1s ease-out;
+}
+
+ .contact[data-affiche="0"] {
+    max-height: 0;
+ }
+
+ .contact[data-affiche="1"] {
+    max-height: 100%;
+ }
+
+.title_contact[data-affiche="0"], .cache_contact[data-affiche="0"] {
+    opacity : 0;
+}
+
+.title_contact[data-affiche="1"], .cache_contact[data-affiche="1"] {
+    opacity: 1;
+}
+
+.cache_contact {
+    position    : fixed;
+    top         : 0;
+    left        : 0;
+    height      : 100%;
+    width       : 100%;
+    background  : rgba(0, 0, 0, 0.5);
+}
+
+.contact {
+    @include shadow();
+    width           : 450px;
+    max-width       : 98%;
+    background      : #fafafa;
+    position        : fixed;
+    bottom          : calc(2% + 65px);
+    right           : 2%;
+    z-index         : 100;
+    overflow        : hidden;
+}
+
+.contact, nav {
+    @include animation-height(1.5s);
+}
+
+.contact .bouton {
+    margin-bottom: 20px;
+}
+
+input, textarea {
+  margin                : 28px 25px 10px;
+  width                 : 400px;
+  display               : block;
+  border                : none;
+  padding               : 20px 0 10px;
+  border-bottom         : solid 1px #F44336;
+  background            : linear-gradient(to bottom, rgba(255,255,255,0) calc(100% + -2px), #F44336 2px);
+  background-position   : -400px 0;
+  background-size       : 400px 100%;
+  background-repeat     : no-repeat;
+  transition            : background 0.3s cubic-bezier(.64,.09,.08,1);
+  resize                : none;
+  overflow              : hidden; 
+}
+
+input {
+  font-size : 0.8em;
+}
+
+textarea {
+    height : 140px;
+}
+
+input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholder {
+    color : #F44336;
+}
+
+input:focus, input:valid, textarea:focus, textarea:valid {
+    box-shadow          : none;
+    outline             : none;
+    background-position : 0 0;
+}
+
+.bouton {
+    border                      : none;
+    border-radius               : 2px;
+    display                     : block;
+    height                      : 36px;
+    line-height                 : 36px;
+    margin                      : 15px auto;
+    width                       : 175px;
+    outline                     : 0;
+    padding                     : 0 2rem;
+    text-transform              : uppercase;
+    vertical-align              : middle;
+    -webkit-tap-highlight-color : transparent;
+    text-decoration             : none;
+    color                       : #FFF;
+    background-color            : #C62828;
+    text-align                  : center;
+    letter-spacing              : .5px;
+    cursor: pointer;
+    -webkit-transition          : all .3s ease-out;
+       -moz-transition          : all .3s ease-out;
+        -ms-transition          : all .3s ease-out;
+         -o-transition          : all .3s ease-out;
+            transition          : all .3s ease-out;
+}

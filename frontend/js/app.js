@@ -18,6 +18,11 @@ App.config([
             url: '/projects/{project}',
             templateUrl: 'partials/project.html',
             controller: 'ProjectCtrl'
+        })
+        .state('language',{
+            url: '/language/{language}',
+            templateUrl: 'partials/language.html',
+            controller: 'LanguageCtrl'
         });
     }
 ]);
@@ -45,5 +50,9 @@ App.constant('CONFIG', {
     },
     animation : {
         start : 1000
-    } 
+    },
+    social : {
+        github      : 'https://github.com/flaviendelangle/',
+        linkedin    : 'https://fr.linkedin.com/in/flavien-delangle-7b0596105'
+    }
 });

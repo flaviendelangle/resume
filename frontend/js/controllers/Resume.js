@@ -1,8 +1,9 @@
 App.controller('ResumeCtrl', [
     '$scope',
+    '$rootScope',
     '$timeout',
     'CONFIG',
-    function($scope,$timeout,CONFIG) {
+    function($scope,$rootScope,$timeout,CONFIG) {
 
         $scope.affiche = false;
 
@@ -17,7 +18,9 @@ App.controller('ResumeCtrl', [
             switch(language) {
                 case 'french' :
                     $scope.html = {
-                        sections : [
+                        title           : 'Curriculum Vitae',
+                        skills_title    : 'Compétences',
+                        sections        : [
                             {
                                 title   : 'Formation',
                                 content : [
@@ -65,6 +68,52 @@ App.controller('ResumeCtrl', [
                     break;
                 case 'english' :
                     $scope.html = {
+                        title           : 'Resume',
+                        skills_title    : 'Skills',
+                        sections        : [
+                            {
+                                title   : 'Formation',
+                                content : [
+                                    {
+                                        title   : 'Lille, University Lille 1',
+                                        year    : '2015-2018',
+                                        place   : 'Telecom Lille, France',
+                                        details : 'Studies in Computer Science, Networking, Signal Theorie and Economy.'
+                                    },{
+                                        title   : 'Lycée Berthollet, Preparatory classes for engineering school.',
+                                        year    : '2013 - 2015',
+                                        place   : 'Annecy, France',
+                                        details : 'MPSI - MP'
+                                    },{
+                                        title   : 'Lycée Edouard Herriot, secondary school',
+                                        year    : '2013',
+                                        place   : 'Voiron, France',
+                                        details : '<i>Baccalauréat S</i>, secondary school diploma equivalent to A-levels.<br>Passed with <i>highest honors</i>.'
+                                    }
+                                ]
+                            },
+                            {
+                                title   : 'Internships and Personnal Projects',
+                                content : [
+                                    {
+                                        title   : 'Internship as web developer at MyMiniFactory',
+                                        year    : '2016 - 4 months',
+                                        place   : 'Londres, England',
+                                        details : 'Creation of a REST API for a 3D printing online platform.<br>Improvement of the current platform with AngularJS and Node.JS'
+                                    },{
+                                        title   : 'Lead Developer and Manager of Zzzelp (http://zzzelp.fr)',
+                                        year    : '2013 - 2016',
+                                        place   : '',
+                                        details : 'Online platform aiming at improving the user experience on the online game Antzzz.<br>The website is currently used by more than 5 000 regular users.'
+                                    },{
+                                        title   : 'Study of the PageRank algorithm',
+                                        year    : '2015',
+                                        place   : '',
+                                        details : 'Mathematical study of the PageRank (historical algorithm of Google).<br>Computation of the PageRank for <i>Wikipedia France</i>.'
+                                    }
+                                ]
+                            }
+                        ]
                     };
                     break;
                 default :
@@ -76,16 +125,16 @@ App.controller('ResumeCtrl', [
                     content : [
                         {
                             title : 'JavaScript',
-                            value : 4
-                        },{
-                            title : 'AngularJS',
-                            value : 3
+                            value : 4.5
                         },{
                             title : 'Jquery',
                             value : 3.5
                         },{
                             title : 'CSS',
                             value : 3.5
+                        },{
+                            title : 'AngularJS',
+                            value : 3
                         }
                     ]
                 },{
@@ -95,14 +144,14 @@ App.controller('ResumeCtrl', [
                             title : 'PHP',
                             value : 4
                         },{
+                            title : 'MySQL',
+                            value : 3.5
+                        },{
                             title : 'Django',
                             value : 3
                         },{
                             title : 'Node.JS',
                             value : 3
-                        },{
-                            title : 'MySQL',
-                            value : 3.5
                         }
 
                     ]
@@ -110,8 +159,12 @@ App.controller('ResumeCtrl', [
             ];
         };
 
-
         $scope.init();
+
+
+        $rootScope.$on('change_language', function(event, language) {
+            $scope.set_language(language);
+        });
 
     }
 ]);

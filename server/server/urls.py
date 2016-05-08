@@ -8,7 +8,11 @@ from rest_framework.routers     import DefaultRouter
 
 import os
 
+from api.contact.views 			import ContactViewSet
+
 router = DefaultRouter()
+
+router.register(r'^contact', ContactViewSet, base_name="contact")
 
 urlpatterns = [
     url(r'^api/', include(router.urls)),

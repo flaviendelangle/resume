@@ -1,8 +1,9 @@
 App.directive("codeBlock", [
     '$window',
     '$timeout',
+    '$rootScope',
     '$state',
-    function($window,$timeout,$state) {
+    function($window,$timeout,$rootScope,$state) {
         return {
             restrict: 'E',
             scope : {
@@ -38,9 +39,15 @@ App.directive("codeBlock", [
                     $state.go('project', { project : project });
                 };
 
+                scope.go_language = function(language) {
+                    $state.go('language', { language : language });  
+                };
+
                 scope.set_language(localStorage.getItem('language'));
 
-                //$window.hljs.highlightBlock(scope.html);
+                $rootScope.$on('change_language', function(event, language) {
+                    scope.set_language(language);
+                });
             },
             templateUrl: 'partials/code-block.html'
         };

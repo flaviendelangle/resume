@@ -1,9 +1,10 @@
 App.directive("navBar", [
     '$rootScope',
     '$timeout',
+    '$window',
     '$state',
     'CONFIG',
-    function($rootScope,$timeout,$state,CONFIG) {
+    function($rootScope,$timeout,$window,$state,CONFIG) {
         return {
             restrict: 'E',
             scope : true,
@@ -31,7 +32,13 @@ App.directive("navBar", [
                                 country         : '',
                                 resume          : 'Curriculum Vitae',
                                 projects_title  : 'Projets réalisés',
-                                languages       : 'Langages maitrisés'
+                                languages       : 'Langages maitrisés',
+                                projects        : [
+                                    { name : 'Stage chez MyMiniFactory', state : 'MyMiniFactory' },
+                                    { name : 'Zzzelp', state : 'Zzzelp' },
+                                    { name : 'TIPE : PageRank', state : 'PageRank' },
+                                    { name : 'Projet ISN', state : 'ISN' }
+                                ]
                             };
                             break;
                         case 'english' :
@@ -41,7 +48,13 @@ App.directive("navBar", [
                                 country         : 'France',
                                 resume          : 'Resume',
                                 projects_title  : 'Projects',
-                                languages       : 'Programming languages'
+                                languages       : 'Programming languages',
+                                projects        : [
+                                    { name : 'Internship at MyMiniFactory', state : 'MyMiniFactory' },
+                                    { name : 'Zzzelp', state : 'Zzzelp' },
+                                    { name : 'TIPE : PageRank', state : 'PageRank' },
+                                    { name : 'ISN project', state : 'ISN' }
+                                ]
                             };
                             break;
                         default :
@@ -55,6 +68,14 @@ App.directive("navBar", [
 
                 scope.go_project = function(project) {
                     $state.go('project', { project : project });
+                };
+
+                scope.open_github = function() {
+                    $window.open(CONFIG.social.github, '_blank');
+                };
+
+                scope.open_linkedin = function() {
+                    $window.open(CONFIG.social.linkedin, '_blank');
                 };
 
                 scope.init();

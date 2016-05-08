@@ -1,11 +1,11 @@
 article > div {
     @include animation-height(1.5s);
-    overflow : hidden;
-    margin-bottom: 50px;
+    overflow        : hidden;
+    margin-bottom   : 50px;
 }
 
 .section_cache {
-    max-height : 0;
+    max-height  : 0;
 }
 
 .section_affiche {
@@ -13,14 +13,13 @@ article > div {
 }
 
 section {
-    margin: 25px auto;
-    position: relative;
-    border-radius: 2px;
-    overflow: hidden;
-    background-color: #fafafa;
-    width   : 750px;
-    margin  : auto;
-    margin-top: 20px;
+    @include shadow();
+    position            : relative;
+    border-radius       : 2px;
+    overflow            : hidden;
+    background-color    : #fafafa;
+    width               : 750px;
+    margin              : 40px auto;
 }
 
 .parcours_scolaire > div:not(.titre_projet), .connaissances_informatique > div:not(.titre_projet), .loisirs >div:not(.titre_projet) {
@@ -41,12 +40,12 @@ section {
 }
 
 .annee_scolaire, .langage_informatique, .titre_loisirs {
-    display: inline-block;
-    width : 150px;
-    vertical-align: top;
+    display         : inline-block;
+    width           : 150px;
+    vertical-align  : top;
 }
 
 .details_scolaire, .contenu_informatique, .details_loisirs {
-    font-size: 0.9em;
-    color : #696969;
+    font-size   : 0.9em;
+    color       : #696969;
 }

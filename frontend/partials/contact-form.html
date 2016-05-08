@@ -1,0 +1,18 @@
+<div class="contact" data-affiche="{{form_visibility}}">
+    <h2>{{html.contact}}</h2>
+    <form ng-submit="send(form);">
+        <input placeholder="Nom" type="text" ng-model="form.name" required>
+        <input placeholder="Société" type="text" ng-model="form.company" required>
+        <input placeholder="Adresse mail" type="email" ng-model="form.email" required>
+        <textarea placeholder="Message" ng-model="form.message" required></textarea>
+        <button class="bouton">{{html.send}}</button>
+    </form>
+</div>
+<div class="cache_contact" data-affiche="{{form_visibility}}" ng-style="{ 'z-index' : z_index_form };">
+</div>
+<img class="icone_contact" src="/images/icons/contact.jpg" ng-mouseover="show_title();" ng-mouseleave="hide_title();" ng-click="show_form();">
+<div class="title_contact" data-affiche="{{title_visibility}}">{{html.title}}</div>
+</div>
+<div class="splashscreen">
+
+</div>
